@@ -1,5 +1,5 @@
 ---
-title: 用 AI 批量生成 PPT 页面
+title: 如何用 AI 生成精美 PPT
 category: tutorial
 date: 2026-10-12
 minutes: 12
