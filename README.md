@@ -5,7 +5,7 @@
 &nbsp;
 
 <p align="center">
-  <img src="https://img.shields.io/badge/开始阅读-AI4U-f05a28?style=for-the-badge&labelColor=111214" alt="开始阅读" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/内容目录-4%20篇教程-151515?style=for-the-badge&labelColor=f05a28" alt="内容目录：4 篇教程" />
+  <img src="https://img.shields.io/badge/开始阅读-AI4U-f05a28?style=for-the-badge&labelColor=111214" alt="开始阅读" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/内容目录-5%20篇教程%20%2B%201%20篇活动-151515?style=for-the-badge&labelColor=f05a28" alt="内容目录：5 篇教程和 1 篇活动" />
 </p>
 
 ## 这是什么
@@ -14,7 +14,7 @@ AI4U（**AI for You**）是一个面向所有对 AI 好奇的人的交流社区
 
 ## 内容导航
 
-目前公开四篇，都会持续更新：
+目前公开 5 篇教程与 1 篇活动信息存档，都会持续更新：
 
 
 | 内容                                                                                   | 讲什么                                                                     | 大概要花  |
@@ -23,6 +23,8 @@ AI4U（**AI for You**）是一个面向所有对 AI 好奇的人的交流社区
 | **[如何用 AI 创建并发布自己的网站](https://ravicc02.github.io/AI4U/docs/build-website-with-ai/)** | 从装客户端、配 Key、把 Agent 用明白，到弄懂前后端，最后把发布交给 Agent 自动化                        | 25 分钟 |
 | **[AI 提效办公](https://ravicc02.github.io/AI4U/docs/ai-office-productivity/)**          | 从写好一条提示词，到按场景取用现成模板，最后拼成能持续运转的工作流                                       | 18 分钟 |
 | **[Codex 从下载到对话](https://ravicc02.github.io/AI4U/docs/codex-setup/)**                | 从下载 Codex 与 CC-Switch 开始，配好请求地址和 Key 跑通第一次对话，再把非 GPT 模型接进来              | 12 分钟 |
+| **[用 AI 批量生成 PPT 页面](https://ravicc02.github.io/AI4U/docs/ai-ppt-guide/)** | 用 NewMax 整理提示词，结合参考图批量生图，核对后放入 PowerPoint | 12 分钟 |
+| **[AI4U 首期 AI 实战讲座](https://ravicc02.github.io/AI4U/docs/ai4u-first-event/)** | 2026 年 10 月 11 日活动信息存档，地点为笃学楼202；非当前报名入口 | 3 分钟 |
 
 
 ## 建议怎么读
