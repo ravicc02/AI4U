@@ -557,6 +557,8 @@
   }
   /* h4：只靠字重区分，不再加装饰（三级以上装饰会过载） */
   .doc-body h4 { margin-top: var(--space-s); font-size: 1.0625rem; font-weight: 750; }
+  /* 文章段落按可用栏宽自然换行，不继承全局 pretty 的孤行优化。 */
+  .doc-page .doc-body p { text-wrap: wrap; }
   .doc-body p { line-height: 1.72; }
 
   /* 列表：去掉默认圆点，marker 换成 ember 短横（与 h2/h3 竖标同语言） */
