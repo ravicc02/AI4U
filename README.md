@@ -36,9 +36,9 @@ AI4U（**AI for You**）是一个面向所有对 AI 好奇的人的交流社区
 
 ## Join us
 
-<img src="public/wechat-group-qr.png" alt="AI4U 微信群二维码" width="180" />
+<img src="public/wechat-qr.png" alt="AI4U 微信二维码" width="180" />
 
-群二维码有有效期，过期了就在[本仓库开个 issue](https://github.com/ravicc02/AI4U/issues/new) 说一声，我们换一张。
+扫码加微信，拉你进群一起聊 AI。
 
 ## 参与和反馈
 

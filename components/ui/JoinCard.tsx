@@ -5,8 +5,8 @@ const ASSET_PREFIX = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? "";
 
 /**
  * 加入卡 — 全站视觉权重最高的一块。
- * 微信群没有群号，加入方式就是扫码：右侧固定渲染二维码图（原「群号 + 复制按钮」范式已随微信群移除）。
- * 二维码源图在 public/wechat-group-qr.png，换群时只替换这张图。
+ * 加入方式是扫个人微信码，由号主拉进群：右侧固定渲染二维码图（原「群号 + 复制按钮」范式已随微信群移除）。
+ * 二维码源图在 public/wechat-qr.png，换微信号时只替换这张图。
  */
 export default function JoinCard() {
   return (

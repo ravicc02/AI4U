@@ -95,10 +95,10 @@ GitHub Pages，`.github/workflows/deploy.yml` 自动部署：push 到 `main` →
 | 字段 | 现状 | 补什么 |
 |---|---|---|
 | `SITE.url` | `https://ravicc02.github.io/AI4U` | 已指向 Pages；换正式域名时改这里（影响 OG / canonical / sitemap） |
-| `SITE.join.qr` | `public/wechat-group-qr.png` | 微信群二维码（**有有效期**，换群或过期时替换这张图） |
+| `SITE.join.qr` | `public/wechat-qr.png` | 个人微信二维码（**长期有效**；换微信号时替换这张图） |
 
 品牌图（favicon / apple-icon / OG 卡）是 `public/` 静态文件，由 `node scripts/generate-assets.mjs` 生成，改设计后重跑脚本，不要再建 ImageResponse route（静态导出下产物为空目录，线上会 404）。
 
 换正式域名后，另需在 `app/layout.tsx` 补 `alternates.canonical`（`SITE.url` 已指向 Pages 地址，OG / sitemap 随之生效）。
 
-> README 是给访客看的门面（顶部图片与徽章引用 `public/` 下的现成资产）；开发与维护说明全部在本文件。微信群二维码同时贴在 README「加入我们」那一段与首页加入卡片上，换群时两处一起换。
+> README 是给访客看的门面（顶部图片与徽章引用 `public/` 下的现成资产）；开发与维护说明全部在本文件。个人微信二维码同时贴在 README「加入我们」那一段与首页加入卡片上，换号时两处一起换。

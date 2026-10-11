@@ -4,10 +4,10 @@ export const SITE = {
   tagline: "把 AI 用成日常",
   url: "https://ravicc02.github.io/AI4U", // GitHub Pages 地址；换正式域名时改这里
   join: {
-    groupLabel: "微信群",
-    hint: "扫码进群，和我们一起聊 AI",
-    qr: "/wechat-group-qr.png", // 组件层路径，Pages 构建下由 NEXT_PUBLIC_ASSET_PREFIX 补前缀
-    qrAlt: "AI4U 微信群二维码",
+    groupLabel: "微信",
+    hint: "扫码加微信，拉你进群一起聊 AI",
+    qr: "/wechat-qr.png", // 组件层路径，Pages 构建下由 NEXT_PUBLIC_ASSET_PREFIX 补前缀
+    qrAlt: "AI4U 微信二维码",
   },
 } as const;
 
