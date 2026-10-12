@@ -57,7 +57,10 @@ export default async function PromptPage({
           <a href={`${SITE.url}/prompt/${slug}.md`}>.md 原文</a>
         </p>
         <div className="doc-body">
-          <pre>{body}</pre>
+          {/* 与阅读页代码块同构：外壳负责定位，<pre> 自己管滚动 */}
+          <div className="code-block">
+            <pre>{body}</pre>
+          </div>
         </div>
         <CodeCopy />
       </article>
