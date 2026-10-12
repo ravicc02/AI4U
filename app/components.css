@@ -18,11 +18,28 @@
     mix-blend-mode: difference; /* 纸幕上墨字、墨幕上纸字，免主题交换 */
     color: var(--night-1);
   }
+  .site-nav__logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
   .site-nav__logo {
     font-size: var(--text-base);
     font-weight: 700;
-    text-decoration: none;
-    color: inherit;
+  }
+  .site-nav__crab {
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity var(--dur-std) var(--ease-out-expo),
+                transform var(--dur-std) var(--ease-out-expo);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .site-nav__logo-wrapper:hover .site-nav__crab {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
   .site-nav__links {
     display: flex;
@@ -1123,5 +1140,195 @@
     .site-nav { height: 60px; }
     .site-nav__links { gap: 0.75rem; }
     .site-nav__link { font-size: 0.72rem; }
+  }
+
+  /* ---------- Clawd Avatar 螃蟹角色 ---------- */
+  .clawd-avatar {
+    image-rendering: pixelated; /* 保持像素风格，不模糊 */
+    image-rendering: crisp-edges;
+  }
+
+  /* Hero 区螃蟹入场动画 */
+  @keyframes fadeInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* 加载状态螃蟹 */
+  .loading-crab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s);
+    padding: var(--space-m);
+  }
+
+  .loading-crab__avatar {
+    animation: loadingBounce 1.2s ease-in-out infinite;
+  }
+
+  @keyframes loadingBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .loading-crab__message {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* 成功提示螃蟹 */
+  .success-crab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s);
+    padding: var(--space-l);
+    background: var(--paper-0);
+    border: 2px solid var(--accent);
+    animation: successSlideIn 0.4s var(--ease-out-expo);
+  }
+
+  @keyframes successSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .success-crab__avatar {
+    animation: successCelebrate 0.6s ease-in-out;
+  }
+
+  @keyframes successCelebrate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+  }
+
+  .success-crab__message {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--ink-0);
+    text-align: center;
+  }
+
+  .success-crab__close {
+    position: absolute;
+    top: var(--space-xs);
+    right: var(--space-xs);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.25rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--dur-fast) var(--ease-out-expo);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .success-crab__close:hover {
+      color: var(--ink-0);
+    }
+  }
+
+  /* 文档卡片样式 */
+  .doc-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid var(--border);
+    padding: var(--space-m);
+    transition: transform var(--dur-std) var(--ease-out-expo),
+                border-color var(--dur-std) var(--ease-out-expo),
+                box-shadow var(--dur-std) var(--ease-out-expo);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .doc-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 32px rgba(21, 21, 21, 0.12);
+    }
+  }
+
+  .doc-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-s);
+    margin-bottom: var(--space-s);
+  }
+
+  .doc-card__avatar {
+    flex-shrink: 0;
+  }
+
+  .doc-card__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-3xs);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .doc-card__category {
+    letter-spacing: 0.08em;
+  }
+
+  .doc-card__time {
+    opacity: 0.7;
+  }
+
+  .doc-card__title {
+    font-size: var(--text-h4);
+    font-weight: 700;
+    margin-bottom: var(--space-2xs);
+    line-height: 1.3;
+  }
+
+  .doc-card__summary {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* 404 页面螃蟹轻微摆动动画 */
+  @keyframes sadWiggle {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+  }
+
+  .nf .clawd-avatar {
+    animation: sadWiggle 3s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    @keyframes fadeInFromRight {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .nf .clawd-avatar {
+      animation: none;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ClawdAvatar from "./ClawdAvatar";
 import { NAV, REPO } from "@/content/site";
 
 /**
@@ -9,8 +10,11 @@ export default function SiteNav() {
   return (
     <header className="site-nav">
       <a className="skip" href="#main">跳到正文</a>
-      <Link href="/" className="site-nav__logo mono" aria-label="AI4U 首页">
-        AI4U
+      <Link href="/" className="site-nav__logo-wrapper" aria-label="AI4U 首页">
+        <span className="site-nav__logo mono">AI4U</span>
+        <span className="site-nav__crab" aria-hidden="true">
+          <ClawdAvatar variant="hero" size="sm" />
+        </span>
       </Link>
       <nav aria-label="主导航">
         <ul className="site-nav__links">
