@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import CmdLine from "@/components/ui/CmdLine";
+import ClawdAvatar from "@/components/ui/ClawdAvatar";
 import { HERO } from "@/content/site";
 
 /* 标题按词组拆分，驱动「键入式」stagger（CSS only，词序 --wi 全局递增） */

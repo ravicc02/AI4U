@@ -111,6 +111,35 @@ function rehypeCodeLang() {
 }
 
 /**
+ * 给 <pre> 包一层 <div class="code-block">，并把语言标识复制到外壳上。
+ *
+ * 必须跑在 rehypeCodeLang 之后（要读它写在 pre 上的 data-lang）。
+ *
+ * 为什么不把滚动也放在这一层：代码块同时充当「横向滚动容器」和「绝对定位基准」时，
+ * 语言标签栏（pre::before）与「复制」按钮的包含块就是滚动容器本身，横向滚动会带着
+ * 它们一起位移——表现为滚到右侧时标签栏右端露出空白、复制按钮错位。
+ * 这里把滚动留在 <pre> 上、定位交给外层 <div>（不滚动），两者互不干扰。
+ */
+function rehypeCodeBlock() {
+  return (tree: HastNode) => {
+    const walk = (node: HastNode) => {
+      if (!node.children) return;
+      node.children = node.children.map((child) => {
+        if (child.type === "element" && child.tagName === "pre") {
+          const lang = child.properties?.["data-lang"];
+          const properties: Record<string, unknown> = { className: "code-block" };
+          if (typeof lang === "string") properties["data-lang"] = lang;
+          return { type: "element", tagName: "div", properties, children: [child] };
+        }
+        walk(child);
+        return child;
+      });
+    };
+    walk(tree);
+  };
+}
+
+/**
  * 从编译后的 HTML 提取目录（id 与 rehype-slug 产出天然一致）。
  * 两级结构：H2 为章、其后的 H3 归入该章 children（正文从 H2 起，H1 由页面标题承担）；
  * 孤儿 H3（前面没有 H2）丢弃——防御性处理，正常文档不会出现。
@@ -158,6 +187,7 @@ function compileDoc(slug: string, raw: string): { doc: Doc; order: number } {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeCallouts)
     .use(rehypeCodeLang)
+    .use(rehypeCodeBlock)
     .use(rehypeHighlight, { detect: false, ignoreMissing: true })
     .use(rehypeSlug)
     .use(rehypeStringify, { allowDangerousHtml: true })

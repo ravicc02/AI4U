@@ -1,6 +1,7 @@
 import PromptLine from "@/components/ui/PromptLine";
 import Highlight from "@/components/ui/Highlight";
 import JoinCard from "@/components/ui/JoinCard";
+import WelcomeCrab from "@/components/ui/WelcomeCrab";
 import { ACT_JOIN } from "@/content/site";
 
 /**
@@ -13,10 +14,15 @@ export default function ActJoin() {
     <section id="join" className="act-join gutter" aria-labelledby="act-join-h">
       <PromptLine text={ACT_JOIN.prompt} />
       <h2 id="act-join-h" className="vh">{ACT_JOIN.prompt}</h2>
-      <p className="act-join__mega display">
-        {lead}
-        <Highlight>{lit}</Highlight>
-      </p>
+      <div style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
+        <p className="act-join__mega display">
+          {lead}
+          <Highlight>{lit}</Highlight>
+        </p>
+        <div aria-hidden="true" style={{ flexShrink: 0 }}>
+          <WelcomeCrab />
+        </div>
+      </div>
       <JoinCard />
     </section>
   );

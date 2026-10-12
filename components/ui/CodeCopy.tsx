@@ -16,7 +16,7 @@ export default function CodeCopy() {
     );
     if (pres.length === 0) return;
 
-    const injected: HTMLButtonElement[] = [];
+    const injected: { pre: HTMLPreElement; btn: HTMLButtonElement }[] = [];
 
     const copy = async (pre: HTMLPreElement, btn: HTMLButtonElement) => {
       const text = (
@@ -57,13 +57,17 @@ export default function CodeCopy() {
         void copy(pre, btn);
       });
 
-      pre.appendChild(btn);
-      injected.push(btn);
+      // 挂到不滚动的外壳上（有的话）：<pre> 横向滚动时按钮不会跟着位移
+      const host = pre.parentElement?.matches("div.code-block")
+        ? pre.parentElement
+        : pre;
+      host.appendChild(btn);
+      injected.push({ pre, btn });
     }
 
     return () => {
-      for (const btn of injected) {
-        btn.parentElement?.removeAttribute("data-copy");
+      for (const { pre, btn } of injected) {
+        pre.removeAttribute("data-copy");
         btn.remove();
       }
     };
