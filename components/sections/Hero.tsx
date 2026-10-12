@@ -16,42 +16,27 @@ export default function Hero() {
   return (
     <section className="hero gutter" aria-labelledby="hero-title">
       <CmdLine text={HERO.prompt} className="hero__prompt" />
-      <div style={{ position: 'relative' }}>
-        <h1 id="hero-title" className="display hero__title">
-          {LINES.map((line, li) => (
-            <span className="hero__line" key={li}>
-              {line.map((w, idx) => (
-                <span
-                  className="hero__word"
-                  key={wi}
-                  style={{ "--wi": wi++ } as CSSProperties}
-                >
-                  {w}
-                  {/* 光标放词内文本流末尾：窄屏词内折行时自动跟在最后一字后，
-                      不会像「词的兄弟节点」那样被占满整行的词挤到下一行 */}
-                  {li === LINES.length - 1 && idx === line.length - 1 && (
-                    <span className="caret caret--blink hero__caret" aria-hidden="true" />
-                  )}
-                </span>
-              ))}
-              {li < LINES.length - 1 && <br />}
-            </span>
-          ))}
-        </h1>
-        {/* 欢迎螃蟹 - 右上角装饰 */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '-2rem',
-            right: '0',
-            opacity: 0,
-            animation: 'fadeInFromRight 0.8s ease-out 1.5s forwards',
-          }}
-          aria-hidden="true"
-        >
-          <ClawdAvatar variant="hero" size="lg" />
-        </div>
-      </div>
+      <h1 id="hero-title" className="display hero__title">
+        {LINES.map((line, li) => (
+          <span className="hero__line" key={li}>
+            {line.map((w, idx) => (
+              <span
+                className="hero__word"
+                key={wi}
+                style={{ "--wi": wi++ } as CSSProperties}
+              >
+                {w}
+                {/* 光标放词内文本流末尾：窄屏词内折行时自动跟在最后一字后，
+                    不会像「词的兄弟节点」那样被占满整行的词挤到下一行 */}
+                {li === LINES.length - 1 && idx === line.length - 1 && (
+                  <span className="caret caret--blink hero__caret" aria-hidden="true" />
+                )}
+              </span>
+            ))}
+            {li < LINES.length - 1 && <br />}
+          </span>
+        ))}
+      </h1>
       <p className="hero__hint mono" aria-hidden="true">{HERO.scrollHint}</p>
     </section>
   );
